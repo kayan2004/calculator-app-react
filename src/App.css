@@ -1,38 +1,371 @@
-.App {
-  text-align: center;
+:root {
+  /* theme 1*/
+  --clr-dark-grey: rgba(67, 74, 89, 1); /* used */
+  --clr-light-grey: rgba(234, 227, 220, 1);
+  --clr-white: rgba(255, 255, 255, 1);
+  --clr-dark-blue: rgba(36, 45, 68, 1);
+  --clr-blue: rgba(100, 113, 152, 1);
+  --clr-red: rgba(208, 63, 47, 1);
+  --clr-darker-blue: rgba(24, 31, 51, 1);
+  --clr-greyish-blue: rgba(58, 70, 99, 1);
+
+  /*theme 2 */
+  --clr-dark-yellow: rgba(54, 54, 44, 1);
+  --clr-whiteish: rgba(229, 228, 225, 1);
+  --clr-white: rgba(255, 255, 255, 1);
+  --clr-blueish-green: rgba(55, 129, 135, 1);
+  --clr-orange: rgba(200, 84, 2, 1);
+  --clr-greyish-white: rgba(230, 230, 230, 1);
+  --clr-black: rgba(3, 1, 1, 1);
+  --clr-almost-white: rgba(238, 238, 238, 1);
+
+  /* theme 3 */
+  --clr-yellow: rgba(255, 229, 61, 1);
+  --clr-dark-purple: rgba(51, 28, 77, 1);
+  --clr-darker-purple: rgba(30, 9, 54, 1);
+  --clr-cyan: rgba(0, 222, 208, 1);
+  --clr-purple: rgba(86, 7, 124, 1);
+  --clr-white: rgba(255, 255, 255, 1);
+  --clr-darkest-purple: rgba(23, 6, 42, 1);
+  --clr-blueish-black: rgba(26, 35, 39, 1);
+
+  --fw-700: 700;
+
+  --ff-default: "League Spartan", sans-serif;
+
+  --fs-body: 32px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* general styles */
+*,
+*::before,
+*::after {
+  font: inherit;
+  box-sizing: border-box;
+}
+* {
+  padding: 0;
+  margin: 0;
+  font-family: var(--ff-default);
+  font-weight: var(--fw-700);
+  font-size: var(--fs-body);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* body */
+main {
+  height: 100%;
+  width: 100%;
+}
+.container {
+  padding: 6%;
+}
+.container.theme1 {
+  background-color: var(--clr-greyish-blue);
+}
+.container.theme2 {
+  background-color: var(--clr-greyish-white);
+}
+.container.theme3 {
+  background-color: var(--clr-darkest-purple);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin-bottom: 40px;
+}
+
+/* h1 */
+h1.theme1 {
+  color: var(--clr-white);
+}
+h1.theme2 {
+  color: var(--clr-dark-yellow);
+}
+h1.theme3 {
+  color: var(--clr-yellow);
+}
+
+/* theme switcher */
+.theme-container {
+  display: flex;
+  align-items: end;
+  gap: 32px;
+}
+
+/* h2 */
+.theme-container > h2 {
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 2px;
+  margin-bottom: 4px;
+}
+.theme-container > h2.theme1 {
+  color: var(--clr-white);
+}
+.theme-container > h2.theme2 {
+  color: var(--clr-dark-yellow);
+}
+.theme-container > h2.theme3 {
+  color: var(--clr-yellow);
+}
+
+/* numbers container */
+.numbers-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10% 10% 10%;
+}
+.numbers-container > span {
+  font-size: 12px;
+}
+.numbers-container.theme1 > span {
+  color: var(--clr-white);
+}
+.numbers-container.theme2 > span {
+  color: var(--clr-dark-yellow);
+}
+.numbers-container.theme3 > span {
+  color: var(--clr-yellow);
+}
+
+/* theme switcher */
+.numbers-switcher-container {
   display: flex;
   flex-direction: column;
+}
+.theme-switcher {
+  width: 71px;
+  background-color: red;
+  height: 26px;
+  border-radius: 16px;
+  display: flex;
   align-items: center;
+
+  padding: 6%;
+}
+.theme-switcher.theme1 {
+  background-color: var(--clr-dark-blue);
+}
+.theme-switcher.theme2 {
+  background-color: var(--clr-black);
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+.theme-switcher.theme3 {
+  background-color: var(--clr-darker-purple);
+  justify-content: end;
 }
 
-.App-link {
-  color: #61dafb;
+/* switcher ball */
+.ball {
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+  width: 16px;
+  height: auto;
+}
+.ball.theme1 {
+  background-color: var(--clr-red);
+}
+.ball.theme2 {
+  background-color: var(--clr-orange);
+}
+.ball.theme3 {
+  background-color: var(--clr-cyan);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* result */
+.result-container {
+  padding: 8%;
+  background-color: red;
+  border-radius: 8px;
+  font-size: 40px;
+  text-align: end;
+  margin-bottom: 40px;
+}
+.result-container.theme1 {
+  background-color: var(--clr-darker-blue);
+  color: var(--clr-white);
+}
+.result-container.theme2 {
+  background-color: var(--clr-almost-white);
+  color: var(--clr-dark-yellow);
+}
+.result-container.theme3 {
+  background-color: var(--clr-darker-purple);
+  color: var(--clr-yellow);
+}
+
+/*calculator buttons container */
+.calculator-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+
+  padding: 20px;
+  background-color: black;
+  border-radius: 8px;
+  gap: 12px;
+}
+.calculator-container.theme1 {
+  background-color: var(--clr-dark-blue);
+}
+.calculator-container.theme2 {
+  background-color: rgba(210, 205, 205, 1);
+}
+.calculator-container.theme3 {
+  background-color: var(--clr-darker-purple);
+}
+
+#reset-button {
+  grid-column: 1/ 3;
+  grid-row: 5;
+}
+#equal-button {
+  grid-column: 3/5;
+  grid-row: 5;
+}
+
+button {
+  height: 2rem;
+  border-radius: 8px;
+  border: none;
+}
+
+button.primary {
+  font-size: 32px;
+}
+button.secondary,
+button#equal-button {
+  font-size: 20px;
+}
+
+button.primary.theme1 {
+  background-color: var(--clr-light-grey);
+  color: var(--clr-dark-grey);
+  box-shadow: 0px 4px rgba(179, 164, 151, 1);
+}
+button.primary.theme2 {
+  background-color: var(--clr-whiteish);
+  color: var(--clr-dark-yellow);
+  box-shadow: 0px 4px rgba(167, 158, 145, 1);
+}
+button.primary.theme3 {
+  background-color: var(--clr-dark-purple);
+  color: var(--clr-yellow);
+  box-shadow: 0px 4px rgba(136, 28, 158, 1);
+}
+
+button.secondary.theme1 {
+  background-color: var(--clr-blue);
+  color: var(--clr-white);
+  box-shadow: 0px 4px rgba(65, 78, 115, 1);
+}
+button.secondary.theme2 {
+  background-color: var(--clr-blueish-green);
+  color: var(--clr-white);
+  box-shadow: 0px 4px rgba(27, 96, 102, 1);
+}
+button.secondary.theme3 {
+  background-color: var(--clr-purple);
+  color: var(--clr-white);
+  box-shadow: 0px 4px rgba(190, 21, 244, 1);
+}
+
+button.equal.theme1 {
+  background-color: var(--clr-red);
+  color: var(--clr-white);
+  box-shadow: 0px 4px rgba(147, 38, 26, 1);
+}
+button.equal.theme2 {
+  background-color: var(--clr-orange);
+  color: var(--clr-white);
+  box-shadow: 0px 4px rgba(135, 57, 1, 1);
+}
+button.equal.theme3 {
+  background-color: var(--clr-cyan);
+  color: var(--clr-white);
+  box-shadow: 0px 4px rgba(108, 249, 241, 1);
+}
+
+/* hover state */
+
+/** calculator buttons **/
+
+/*** theme 1 ***/
+button.primary.theme1:hover {
+  background-color: rgba(255, 255, 254, 1);
+}
+button.secondary.theme1:hover {
+  background-color: rgba(162, 178, 225, 1);
+}
+button.equal.theme1:hover {
+  background-color: rgba(249, 107, 91, 1);
+}
+
+/*** theme 2 ***/
+button.primary.theme2:hover {
+  background-color: var(--clr-white);
+}
+button.secondary.theme2:hover {
+  background-color: rgba(98, 181, 188, 1);
+}
+button.equal.theme2:hover {
+  background-color: rgba(255, 138, 56, 1);
+}
+
+/*** theme 3 ***/
+button.primary.theme3:hover {
+  background-color: rgba(108, 52, 172, 1);
+}
+button.secondary.theme3:hover {
+  background-color: rgba(134, 49, 175, 1);
+}
+button.equal.theme3:hover {
+  background-color: rgba(147, 255, 248, 1);
+}
+
+/** ball **/
+.ball.theme1:hover {
+  background-color: rgba(249, 107, 91, 1);
+}
+.ball.theme2:hover {
+  background-color: rgba(255, 138, 56, 1);
+}
+.ball.theme3:hover {
+  background-color: rgba(147, 255, 248, 1);
+}
+/* desktop screen */
+@media screen and (min-width: 678px) {
+  #root {
+    min-width: 740px;
   }
-  to {
-    transform: rotate(360deg);
+
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .calculator-container {
+    gap: 24px;
+  }
+  .result-container {
+    font-size: 56px;
+  }
+  button.primary {
+    font-size: 40px;
+  }
+  button.secondary,
+  button.equal {
+    font-size: 28px;
+  }
+
+  button,
+  .ball,
+  .numbers-container > span {
+    cursor: pointer;
   }
 }
